@@ -45,9 +45,9 @@ typedef void (*DestructFuncT)( void * );
 struct Node 
 {
     void *data;
-    Node *next;
-    Node *previous;
-}
+    struct Node *next;
+    struct Node *previous;
+};
  
 struct SortedList
 {
@@ -57,6 +57,7 @@ struct SortedList
 	
 };
 typedef struct SortedList* SortedListPtr;
+typedef struct SortedList SortedList;
 
 
 /*
@@ -123,7 +124,7 @@ int SLRemove(SortedListPtr list, void *newObj);
  */
 struct SortedListIterator
 {
-	SortedList * node;
+	SortedList *node;
 };
 typedef struct SortedListIterator* SortedListIteratorPtr;
 
