@@ -19,9 +19,35 @@ SortedListPtr SLCreate(CompareFuncT cf, DestructFuncT df)
 
 void SLDestroy(SortedListPtr list)
 {
+	struct Node *current = list->node;
+	struct Node *next;
+	if (current==NULL)
+   {
+   	free(list);
+   	return;
+   }
+   
+   else if (current->next==NULL)
+   {
+	free(current);
+	free(list);
+	return;
+   }
 
-
+   else
+   {
+	   while (current!=NULL)
+	   {
+		next = current->next;
+        	free(current);
+        	current = next;
+	   }
+   free(list);
+   return;
+   }
 }
+
+
 int SLInsert(SortedListPtr list, void *newObj)
 {
     /*  Init the insertion node
