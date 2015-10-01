@@ -121,9 +121,11 @@ int SLRemove(SortedListPtr list, void *newObj)
 			next = current->next;
 			free(current);
 			current = next;
+			return 1;
 		}
 		else {
 		free(current);
+		return 1;
 		}
 		
 	}
