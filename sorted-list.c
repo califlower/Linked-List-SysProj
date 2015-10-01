@@ -10,7 +10,6 @@ SortedListPtr SLCreate(CompareFuncT cf, DestructFuncT df)
 {
 		SortedList *list= malloc(sizeof(SortedList));
         Node *node=malloc(sizeof(Node));
-
 		list->comp=cf;
 		list->dest=df;
 		list->node->next=NULL;
@@ -19,31 +18,39 @@ SortedListPtr SLCreate(CompareFuncT cf, DestructFuncT df)
 		return list;
 }
 
-void SLDestroy(SortedListPtr list);
+void SLDestroy(SortedListPtr list)
 {
 
 
 }
 int SLInsert(SortedListPtr list, void *newObj)
 {
-
-    struct SortedList *toInsert=malloc(sizeof(struct SortedList));
-    struct SortedList *iter;
+    /*  Init the insertion node
+        Also inits a traversal node
+    */
+    
+    struct Node *toInsert= malloc(sizeof(Node));
+    struct Node *iter=list->node;
 
     toInsert->data=newObj;
-    iter=head;
-
-	if (iter==NULL || CompareFuncT(iter->data,newObj)<1)
+ 
+    /*  If the list is empty or if the object to be inserted is the largest 
+    */
+    
+	if (iter==NULL || list->comp(iter->data,newObj)<1)
 	{
-		head=toInsert;
-		head->previous=NULL
-		head->next=iter;
-		return;
+		
+        toInsert->previous=NULL;
+		toInsert->next=iter;
+        list->node=toInsert;
+		return 1;
 	}
-
-	else if (CompareFuncT(newObj,iter->data)==0)
+    
+    /* if the object is already in the list, and it's the first thing there
+    */
+	else if (list->comp(newObj,iter->data)==0)
 	{
-		return;
+		return 0;
 	}
 
 	else
@@ -52,35 +59,35 @@ int SLInsert(SortedListPtr list, void *newObj)
 		while (iter!=NULL)
 		{
 
-			if (CompareFuncT(iter->data,num)==0)
+            if (list->comp(iter->data,newObj)==0)
 			{
-				return;
+				return 0;
 			}
 
-			if (CompareFuncT(newObj, iter->data)>1)
+			if (list->comp(newObj,iter->data)>1)
+            {
 
 				toInsert->next=iter;
                 toInsert->previous=iter->previous;
 				iter->previous=toInsert;
-				return;
+                return 1;
+				
 			}
             else if (iter->next==NULL)
             {
                 iter->next=toInsert;
                 toInsert->previous=iter;
                 toInsert->next=NULL;
+                return 1;
 
             }
 			iter=iter->next;
 		}
 	}
-
-
-
 }
 int SLRemove(SortedListPtr list, void *newObj)
 {
-
+    return 0;
 }
 
 
