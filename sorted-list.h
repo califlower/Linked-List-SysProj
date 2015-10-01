@@ -48,13 +48,13 @@ struct Node
     struct Node *next;
     struct Node *previous;
 };
- 
+typedef struct Node Node;
+
 struct SortedList
 {
 	CompareFuncT comp;
 	DestructFuncT dest;
-	void * data;
-	
+	struct Node *node;
 };
 typedef struct SortedList* SortedListPtr;
 typedef struct SortedList SortedList;
