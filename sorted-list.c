@@ -9,11 +9,10 @@ struct SortedList *head;
 SortedListPtr SLCreate(CompareFuncT cf, DestructFuncT df)
 {
 		SortedList *list= malloc(sizeof(SortedList));
-        Node *node=malloc(sizeof(Node));
+        
 		list->comp=cf;
 		list->dest=df;
-		list->node->next=NULL;
-        list->node->previous=NULL;
+		list->node=NULL;
 		head=list;
 		return list;
 }
