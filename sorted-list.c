@@ -29,15 +29,15 @@ int SLInsert(SortedListPtr list, void *newObj)
     */
     
     struct Node *toInsert= malloc(sizeof(Node));
-    struct Node *iter=list->node;
+    struct Node *iter=list->node; // holds the head of the list
 
-    toInsert->data=newObj;
+    toInsert->data=newObj; // holds the void* data
  
     /*  If the list is empty or if the object to be inserted is the largest 
     */
     
-	if (iter==NULL || list->comp(iter->data,newObj)<1)
-	{
+	if (iter==NULL || list->comp(newObj,iter->data)<0) // if the node does not exist or if the new data is smaller then the head node
+	{ //insert to the top of the list
 		
         toInsert->previous=NULL;
 		toInsert->next=iter;
@@ -111,5 +111,3 @@ void * SLGetItem( SortedListIteratorPtr iter )
 {
 
 }
-
-
