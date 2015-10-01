@@ -34,16 +34,16 @@ void SLDestroy(SortedListPtr list)
 	return;
    }
 
-   else
+	else
    {
 	   while (current!=NULL)
 	   {
 		next = current->next;
-        	free(current);
-        	current = next;
+        free(current);
+        current = next;
 	   }
-   free(list);
-   return;
+	   free(list);
+	   return;
    }
 }
 
@@ -112,6 +112,39 @@ int SLInsert(SortedListPtr list, void *newObj)
 }
 int SLRemove(SortedListPtr list, void *newObj)
 {
+	struct Node *current = list->node;
+	struct Node *next;
+	
+	if (current->data == newObj){
+	
+		if (current->next!=NULL){
+			next = current->next;
+			free(current);
+			current = next;
+		}
+		else {
+		free(current);
+		}
+		
+	}
+	
+	else{
+		
+		
+		while (current->next!=NULL){
+	
+			current = current->next;
+			
+			if (current->data == newObj){
+			next = current->next;
+			free(current);
+			current = next;
+			return 1;
+			}
+		}
+	
+	}
+	
     return 0;
 }
 
