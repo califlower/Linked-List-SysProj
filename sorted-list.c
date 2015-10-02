@@ -6,15 +6,15 @@
 
 struct SortedList *head;
 
-SortedListPtr SLCreate(CompareFuncT cf, DestructFuncT df)
+SortedList SLCreate(CompareFuncT cf, DestructFuncT df)
 {
-		SortedList *list= malloc(sizeof(SortedList));
+		struct SortedList *list= malloc(sizeof(SortedList));
         
 		list->comp=cf;
 		list->dest=df;
 		list->node=NULL;
 		head=list;
-		return list;
+		return *list;
 }
 
 void SLDestroy(SortedListPtr list)
@@ -153,6 +153,9 @@ int SLRemove(SortedListPtr list, void *newObj)
 
 SortedListIteratorPtr SLCreateIterator(SortedListPtr list)
 {
+
+		list= malloc(sizeof(SortedList));
+
 
 }
 
