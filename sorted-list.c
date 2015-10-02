@@ -160,7 +160,7 @@ int SLRemove(SortedListPtr list, void *newObj)
 SortedListIteratorPtr SLCreateIterator(SortedList *list)
 {
 		SortedListIteratorPtr iterator = malloc(sizeof(SortedListIterator));
-		iterator->list = list;
+		iterator->iterNode = list->node;
 		return iterator;
 }
 
@@ -174,12 +174,22 @@ void SLDestroyIterator(SortedListIteratorPtr iter)
 
 
 void * SLNextItem(SortedListIteratorPtr iter)
-{
 
+{
+    iter->iterNode=iter->iterNode->next;
+    
+    if (iter->iterNode==NULL)
+        return NULL;
+    else
+        return iter->iterNode->data;
 }
 
 
 void * SLGetItem( SortedListIteratorPtr iter )
 {
-
+   
+    if (iter->iterNode==NULL)
+        return NULL;
+    else
+        return iter->iterNode->data;
 }
