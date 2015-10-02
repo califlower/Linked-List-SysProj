@@ -117,15 +117,18 @@ int SLRemove(SortedListPtr list, void *newObj)
 	struct Node *current = list->node;
 	struct Node *next;
 	
-	if (current->data == newObj){
+	if (current->data == newObj)
+    {
 	
-		if (current->next!=NULL){
+		if (current->next!=NULL)
+        {
 			next = current->next;
 			free(current);
 			current = next;
 			return 1;
 		}
-		else {
+		else 
+        {
 		free(current);
 		return 1;
 		}
@@ -135,7 +138,8 @@ int SLRemove(SortedListPtr list, void *newObj)
 	else{
 		
 		
-		while (current->next!=NULL){
+		while (current->next!=NULL)
+        {
 	
 			current = current->next;
 			
@@ -163,18 +167,7 @@ SortedListIteratorPtr SLCreateIterator(SortedList *list)
 void SLDestroyIterator(SortedListIteratorPtr iter)
 {
 
-	
-
-/*
- * SLDestroyIterator destroys a SortedListIterator pointed to by parameter 'iter'.
- *
- * SLDestroyIterator should destroy the SortedListIterator, but should NOT
- *  affect the list used to create the SortedListIterator in any way.
- */
-
-	
-
-
+	free (iter);
 
 
 }
