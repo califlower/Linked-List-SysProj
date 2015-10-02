@@ -2,8 +2,6 @@
 #include <stdio.h>
 #include "sorted-list.h"
 
-
-
 struct SortedList *head;
 
 SortedList SLCreate(CompareFuncT cf, DestructFuncT df)
@@ -155,16 +153,29 @@ int SLRemove(SortedListPtr list, void *newObj)
 }
 
 
-SortedListIteratorPtr SLCreateIterator(SortedListPtr list)
+SortedListIteratorPtr SLCreateIterator(SortedList *list)
 {
-
-		list= malloc(sizeof(SortedList));
-
-
+		SortedListIteratorPtr iterator = malloc(sizeof(SortedListIterator));
+		iterator->list = list;
+		return iterator;
 }
 
 void SLDestroyIterator(SortedListIteratorPtr iter)
 {
+
+	
+
+/*
+ * SLDestroyIterator destroys a SortedListIterator pointed to by parameter 'iter'.
+ *
+ * SLDestroyIterator should destroy the SortedListIterator, but should NOT
+ *  affect the list used to create the SortedListIterator in any way.
+ */
+
+	
+
+
+
 
 }
 
