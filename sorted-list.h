@@ -72,7 +72,7 @@ typedef struct SortedList SortedList;
  *   on success.
  */
 
-SortedListPtr SLCreate(CompareFuncT cf, DestructFuncT df);
+//SortedListPtr SLCreate(CompareFuncT cf, DestructFuncT df);
 
 
 /*
@@ -124,9 +124,11 @@ int SLRemove(SortedListPtr list, void *newObj);
  */
 struct SortedListIterator
 {
-	SortedList *node;
+        SortedListPtr list;
 };
+
 typedef struct SortedListIterator* SortedListIteratorPtr;
+typedef struct SortedListIterator SortedListIterator;
 
 
 /*
@@ -184,7 +186,7 @@ void * SLNextItem(SortedListIteratorPtr iter);
  */
 
 void * SLGetItem( SortedListIteratorPtr iter );
-
+	
 
 
 #endif
