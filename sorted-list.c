@@ -23,7 +23,7 @@ void SLDestroy(SortedListPtr list)
 	struct Node *current = list->node;
 	struct Node *next;
     
-	if (current==NULL)
+    if (current==NULL)
     {
         free(list);
         return;
