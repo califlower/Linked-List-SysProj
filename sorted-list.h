@@ -72,7 +72,7 @@ typedef struct SortedList SortedList;
  *   on success.
  */
 
-//SortedListPtr SLCreate(CompareFuncT cf, DestructFuncT df);
+SortedListPtr SLCreate(CompareFuncT cf, DestructFuncT df);
 
 
 /*
