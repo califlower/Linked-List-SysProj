@@ -128,7 +128,7 @@ struct SortedListIterator
         SortedListPtr list;
     */
         struct Node *iterNode;
-        int counter;
+        
 };
 
 typedef struct SortedListIterator* SortedListIteratorPtr;
