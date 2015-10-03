@@ -130,15 +130,18 @@ int SLRemove(SortedListPtr list, void *newObj)
 	
 	if (list->comp(current->data,newObj)==0)
     {
+        /*Assuming the head is the object to remove */
         
 		if (current->next!=NULL)
         {
-            current->next=NULL;
+            current->next->previous=    NULL;
+            list->node=                 current->next;
 			free(current);
 			return 1;
 		}
 		else 
         {
+            list->node=NULL;
             free(current);
             return 1;
 		}
