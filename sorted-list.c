@@ -150,9 +150,8 @@ int SLRemove(SortedListPtr list, void *newObj)
 			return 1;
 			}
 		}
-	
+	return 0;
 	}
-	
     return 0;
 }
 
@@ -176,7 +175,9 @@ void SLDestroyIterator(SortedListIteratorPtr iter)
 void * SLNextItem(SortedListIteratorPtr iter)
 
 {
+	
     iter->iterNode=iter->iterNode->next;
+    iter->counter++;
     
     if (iter->iterNode==NULL)
         return NULL;
@@ -187,6 +188,11 @@ void * SLNextItem(SortedListIteratorPtr iter)
 
 void * SLGetItem( SortedListIteratorPtr iter )
 {
+   int i;
+   
+   for (int i = 0; i<iter->counter; i++){
+   iter->iterNode=iter->iterNode->next;
+   }
    
     if (iter->iterNode==NULL)
         return NULL;
