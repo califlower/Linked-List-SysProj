@@ -108,10 +108,10 @@ int SLInsert(SortedListPtr list, void *newObj)
 			*/
 			else if (list->comp(newObj,iter->data)==-1)
             {
-				iter->next->previous=	toInsert;
 				toInsert->next=			iter->next;
-                toInsert->previous=		iter;
-				
+				toInsert->previous=		iter;
+				toInsert->next->previous=toInsert;
+				iter->next=toInsert;
                 return 1;	
 			}
             else if (iter->next==NULL)
