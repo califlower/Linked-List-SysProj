@@ -30,6 +30,7 @@ struct SortedListIterator
 {
 
         struct Node *iterNode;
+        int counter;
 };
 	
 #endif
