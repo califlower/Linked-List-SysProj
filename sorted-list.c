@@ -6,14 +6,14 @@
 
 SortedListPtr SLCreate(CompareFuncT cf, DestructFuncT df)
 {
-		SortedListPtr list=			malloc(sizeof(SortedListPtr));
-		Node *listNode=				malloc(sizeof(Node));
+	SortedListPtr list=				malloc(sizeof(SortedListPtr));
+	Node *listNode=					malloc(sizeof(Node));
         
-		list->comp=					cf;
-		list->dest=					df;
-		list->node=					listNode;
+	list->comp=						cf;
+	list->dest=						df;
+	list->node=						listNode;
 		
-		return list;
+	return list;
 }
 
 void SLDestroy(SortedListPtr list)
@@ -36,9 +36,9 @@ void SLDestroy(SortedListPtr list)
 	{
 		while (current!=NULL)
 		{
-			next = current->next;
+			next = 					current->next;
 			free(current);
-			current = next;
+			current=				next;
 	   }
 	   
 	free(list);
