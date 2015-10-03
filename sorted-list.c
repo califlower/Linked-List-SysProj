@@ -6,7 +6,7 @@
 
 SortedListPtr SLCreate(CompareFuncT cf, DestructFuncT df)
 {
-        SortedListPtr list=         malloc(sizeof(SortedListPtr));
+		SortedListPtr list=         malloc(sizeof(SortedListPtr));
 		Node *listNode=             malloc(sizeof(Node));
         
         
