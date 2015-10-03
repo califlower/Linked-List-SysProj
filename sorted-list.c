@@ -12,6 +12,7 @@ SortedListPtr SLCreate(CompareFuncT cf, DestructFuncT df)
 	list->comp=						cf;
 	list->dest=						df;
 	list->node=						listNode;
+	list->node->next=				NULL;
 		
 	return list;
 }
@@ -45,8 +46,6 @@ void SLDestroy(SortedListPtr list)
 	return;
    }
 }
-
-
 int SLInsert(SortedListPtr list, void *newObj)
 {
     /*  Init the insertion node
@@ -69,7 +68,7 @@ int SLInsert(SortedListPtr list, void *newObj)
 	{ 
 		
 		toInsert->previous=			NULL;
-		toInsert->next=				NULL
+		toInsert->next=				NULL;
 		list->node=					toInsert;
 		return 1;
 	}
@@ -109,19 +108,18 @@ int SLInsert(SortedListPtr list, void *newObj)
 			*/
 			else if (list->comp(newObj,iter->data)==-1)
             {
-
-				iter->next->previous=	toInsert
+				iter->next->previous=	toInsert;
 				toInsert->next=			iter->next;
                 toInsert->previous=		iter;
 				
                 return 1;	
 			}
-            
             else if (iter->next==NULL)
             {
-				iter->next=			toInsert;
-				toInsert->previous=	iter;
-				toInsert->next=		NULL;
+				iter->next=				toInsert;
+				toInsert->previous=		iter;
+				toInsert->next=			NULL;
+				
 				return 1;
 
             }
@@ -196,10 +194,29 @@ void * SLNextItem(SortedListIteratorPtr iter)
         return iter->iterNode->data;
 }
 
-void * SLGetItem( SortedListIteratorPtr iter )
+void * SLGetItem(SortedListIteratorPtr iter)
 {   
     if (iter->iterNode==NULL)
         return NULL;
     else
         return iter->iterNode->data;
+}
+void display(SortedList *list)
+{
+    Node *root=							list->node;
+	
+    if(root==NULL)
+    {
+		return;
+    }
+    while(root->next!=NULL)
+    {
+		double v=*(double*)(root->data);
+		printf("%g",v);
+		
+		if (root->next!=NULL)
+			printf("	");
+		root=root->next;
+    }
+    
 }
