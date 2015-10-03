@@ -126,43 +126,43 @@ int SLInsert(SortedListPtr list, void *newObj)
 }
 int SLRemove(SortedListPtr list, void *newObj)
 {
-	struct Node *current = list->node;
+        struct Node *current = list->node;
 	
-	if (list->comp(current->data,newObj)==0)
-    {
+        if (list->comp(current->data,newObj)==0)
+        {
         /*Assuming the head is the object to remove */
         
-		if (current->next!=NULL)
-        {
-            current->next->previous=    NULL;
-            list->node=                 current->next;
-			free(current);
-			return 1;
-		}
-		else 
-        {
-            list->node=NULL;
-            free(current);
-            return 1;
-		}
+                if (current->next!=NULL)
+                {
+                        current->next->previous=    NULL;
+                        list->node=                 current->next;
+		        free(current);
+		        return 1;
+	        }
+	        else 
+                {
+                        list->node=NULL;
+                        free(current);
+                        return 1;
+	        }
 		
-	}
+        }
 	
 	else
-    {
-		
-		while (current->next!=NULL)
         {
+		
+	        while (current->next!=NULL)
+                {
 	
-			current = current->next;
-			
-			if (list->comp(current->data,newObj)==0)
-            {
-                current->previous->next=current->next;
-                free(current);
-                return 1;
-			}
+		        current = current->next;
+
+		if (list->comp(current->data,newObj)==0)
+                {
+                        current->previous->next=current->next;
+                        free(current);
+                        return 1;
 		}
+	}
         return 0;
 	}
     /*
