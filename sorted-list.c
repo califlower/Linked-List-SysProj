@@ -106,19 +106,20 @@ int SLInsert(SortedListPtr list, void *newObj)
 			/*
 				If it't smaller than iter, insert it there
 			*/
-			else if (list->comp(newObj,iter->data)==-1)
+			else if (list->comp(newObj,iter->next->data)==1)
             {
-				toInsert->next=			iter->next;
-				toInsert->previous=		iter;
-				toInsert->next->previous=toInsert;
+	
+				toInsert->next=				iter->next;
+				toInsert->previous=			iter;
+				toInsert->next->previous=	toInsert;
 				iter->next=toInsert;
                 return 1;	
 			}
             else if (iter->next==NULL)
             {
-				iter->next=				toInsert;
-				toInsert->previous=		iter;
-				toInsert->next=			NULL;
+				iter->next=					toInsert;
+				toInsert->previous=			iter;
+				toInsert->next=				NULL;
 				
 				return 1;
 

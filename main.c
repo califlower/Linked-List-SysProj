@@ -39,14 +39,14 @@ int main(int argc, char **argv)
 	*n3 = 3.0;
 	*n4 = 8.0;
 	*n5 = 11.0;
-	*n6 = 23.0;
+	*n6 = 1.0;
 	
 	
 	SLInsert(sortedList, n1);
 	SLInsert(sortedList, n2);
 	SLInsert(sortedList, n5);
 	SLInsert(sortedList, n3);
-	//SLInsert(sortedList, n6);
+	SLInsert(sortedList, n6);
 	
 	display(sortedList);
 	
