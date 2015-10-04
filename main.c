@@ -68,7 +68,7 @@ int main(int argc, char **argv)
 	SLInsert(sortedList, n5);
 	SLInsert(sortedList, n3);
 	SLInsert(sortedList, n6);
-	display(sortedList);
+	displayDouble(sortedList);
 	
 	/*
 	SLRemove(sortedList, n1);
