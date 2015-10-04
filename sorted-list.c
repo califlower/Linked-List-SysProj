@@ -229,7 +229,7 @@ void displayInt(SortedList *list)
     while(root->next!=NULL)
     {
 		int v=*(int*)(root->data);
-		printf("%g",v);
+		printf("%d",v);
 		
 		if (root->next!=NULL)
 			printf("	");
