@@ -1,108 +1,78 @@
-Test cases
-INTEGER TEST CASE
-Input
---------------------
+Test Cases
+
+INTEGER TEST CASE - 
+Input:  (Same multiple inputs)
 1 1 1 1 
 
-Output
---------------------
+Output:
 1
 ==============================================
+Input: (Reordering of Ints)
 
-Input
---------------------
 1 2 3 4 
 
-Output
---------------------
+Output:
 4 3 2 1
-
 ==============================================
-
-Input
---------------------
+Input: (Reordering of Ints with Multiple Same Inputs)
 4 2 4 2 
 
-Output
---------------------
+Output:
 4 2
-
 ==============================================
-
-Input
---------------------
+Input: (Reordering of Ints)
 9 2 10 5 
 
-Output
---------------------
+Output:
 10 9 5 2
 
-DOUBLE TEST CASE
+DOUBLE TEST CASES - 
 ================================================================
 ================================================================
 
-Input
---------------------
+Input: (Multiple Double Inputs)
 1.4 1.4 1.4 1.4 
 
-Output
---------------------
+Output:
 1.4
 ==============================================
-
-Input
---------------------
+Input: (Double Inputs Reordering)
 1.1 2.2 3.3 4.4 
 
-Output
---------------------
+Output:
 4.4 3.3 2.2 1.1
 
 ==============================================
-
-Input
---------------------
+Input: (Multiple Double Inputs and Reordering)
 4.4 2.2 4.4 2.2 
 
-Output
---------------------
+Output:
 4.4 2.2
-
 ==============================================
-
-Input
---------------------
+Input: (Reordering of Doubles)
 9.9 2.2 10.1 5.5 
 
-Output
---------------------
+Output:
 10.1 9.9 5.5 2.2
 
 REMOVE FUNCTION TEST
 =================================================
 =================================================
 
-Input
---------------------
-9.9 2.2 10.1 5.5 
+Input: (Removing Doubles)
+9.9 2.2 10.1 5.5:
 
-Remove
---------------------
+Remove:
 9.9 2.2
 
-Output
---------------------
+Output:
 10.1 5.5
-
 ================================================= 
-Input
---------------------
+Input: (Removing an int which has multiple inputs of the same value)
 1 1 1 1
 
-Remove
---------------------
+Remove:
 1
 
-Output
---------------------
+Output:
 NO OUTPUT
