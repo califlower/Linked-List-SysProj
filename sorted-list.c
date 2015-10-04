@@ -6,8 +6,8 @@
 
 SortedListPtr SLCreate(CompareFuncT cf, DestructFuncT df)
 {
-	SortedListPtr list=					malloc(sizeof(SortedListPtr));
-	Node *listNode=						malloc(sizeof(Node));
+	SortedListPtr list =malloc(sizeof(SortedListPtr));
+	Node *listNode = malloc(sizeof(Node));
         
 	list->comp=						cf;
 	list->dest=						df;
@@ -197,6 +197,7 @@ void * SLGetItem(SortedListIteratorPtr iter)
     else
         return iter->iterNode->data;
 }
+
 void display(SortedList *list)
 {
     Node *root=							list->node;
@@ -211,7 +212,7 @@ void display(SortedList *list)
 		printf("%g",v);
 		
 		if (root->next!=NULL)
-			printf("	");
+			printf("\n");
 		root=root->next;
     }
     
