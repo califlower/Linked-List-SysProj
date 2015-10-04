@@ -218,23 +218,3 @@ void displayDouble(SortedList *list)
     }
     printf("\n");
 }
-void displayInt(SortedList *list)
-{
-    Node *root=							list->node;
-	
-    if(root==NULL)
-    {
-		return;
-    }
-    while(root->next!=NULL)
-    {
-		int v=*(int*)(root->data);
-		printf("%d",v);
-		
-		if (root->next!=NULL)
-			printf("	");
-		root=root->next;
-    }
-    printf("\n");
-    
-}
