@@ -63,3 +63,5 @@ void destruct(void *a)
 	free(a);
 }
 
+NOTE
+Removing an object that the iterator is pointing too will not change it. After removing an object that the iterator is pointing to, please make sure to call Get Next Item in order to properly update it.
