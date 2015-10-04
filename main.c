@@ -1,7 +1,7 @@
-#include "sorted-list.c"
+#include "sorted-list.h"
 #include <stdlib.h>
 #include <stdio.h>
-
+void displayDouble(SortedList *list);
 int compareDoubleTest(void *p1, void *p2)
 {
 	double firstDouble		= *(double *)p1;
