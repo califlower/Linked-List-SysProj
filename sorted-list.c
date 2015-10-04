@@ -55,14 +55,15 @@ int SLInsert(SortedListPtr list, void *newObj)
 	*/
 	
 	struct Node *toInsert= 					malloc(sizeof(Node));
-	struct Node *iter=					list->node; 
+	struct Node *iter = malloc(sizeof(Node));
+	iter = list->node; 
 
 	toInsert->data=						newObj;
     
 	/* 
 		If the list is empty
 	*/
-	if (iter==NULL)
+	if (iter==NULL || iter->data == NULL)
 	{ 
 		
 		toInsert->previous=				NULL;
