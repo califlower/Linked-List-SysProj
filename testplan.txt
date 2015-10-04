@@ -54,25 +54,5 @@ Input: (Reordering of Doubles)
 
 Output:
 10.1 9.9 5.5 2.2
-
-REMOVE FUNCTION TEST
-=================================================
-=================================================
-
-Input: (Removing Doubles)
-9.9 2.2 10.1 5.5:
-
-Remove:
-9.9 2.2
-
-Output:
-10.1 5.5
-================================================= 
-Input: (Removing an int which has multiple inputs of the same value)
-1 1 1 1
-
-Remove:
-1
-
 Output:
 NO OUTPUT
