@@ -199,7 +199,7 @@ void * SLGetItem(SortedListIteratorPtr iter)
         return iter->iterNode->data;
 }
 
-void display(SortedList *list)
+void displayDouble(SortedList *list)
 {
     Node *root=							list->node;
 	
@@ -216,5 +216,25 @@ void display(SortedList *list)
 			printf("	");
 		root=root->next;
     }
+    printf("\n");
+}
+void displayInt(SortedList *list)
+{
+    Node *root=							list->node;
+	
+    if(root==NULL)
+    {
+		return;
+    }
+    while(root->next!=NULL)
+    {
+		int v=*(int*)(root->data);
+		printf("%g",v);
+		
+		if (root->next!=NULL)
+			printf("	");
+		root=root->next;
+    }
+    printf("\n");
     
 }
