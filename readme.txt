@@ -28,11 +28,11 @@ SLDestroy Running Time
 -------------------------------------------------------------------
 HOW TO RUN
 -------------------------------------------------------------------
-You must suppy your own main.c file.
+You must supply your own main.c file.
 
-Our main.c file has the ability to test integers.
+Our main.c file has the ability to test integers and doubles.
 While not implementing every single data type, the fact that
-our main function works with integers shows that it does work well..
+our main function works with integers and doubles shows that it does work well..
 
 To test other data types, you must have your own comparator functions.
 
