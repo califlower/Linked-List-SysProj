@@ -212,7 +212,7 @@ void display(SortedList *list)
 		printf("%g",v);
 		
 		if (root->next!=NULL)
-			printf("\n");
+			printf("%s", "  ");
 		root=root->next;
     }
     

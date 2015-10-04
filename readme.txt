@@ -42,8 +42,8 @@ The destruct method can be passed in as the destructFunctonT
 
 int compareIntegerType(void *p1, void *p2)
 {
-	int firstInt = *(double *)p1;
-	int secondInt = *(double *)p2;
+	int firstInt = *(int *)p1;
+	int secondInt = *(int *)p2;
 	
 	if(firstInt < secondInt)
 	{

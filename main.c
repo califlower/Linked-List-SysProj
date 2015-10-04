@@ -2,16 +2,34 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int compareDubs(void *p1, void *p2)
+int compareIntegerTest(void *p1, void *p2)
 {
-	double d1 = *(double *)p1;
-	double d2 = *(double *)p2;
+	int firstInt 			= *(int *)p1;
+	int secondInt 			= *(int *)p2;
 	
-	if(d1 < d2)
+	if(firstInt < secondInt)
 	{
 		return -1;
 	}
-	else if(d1 > d2)
+	else if(firstInt > secondInt)
+	{
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
+}
+int compareDoubleTest(void *p1, void *p2)
+{
+	double firstDouble		= *(double *)p1;
+	double secondDouble		= *(double *)p2;
+	
+	if(firstDouble < secondDouble)
+	{
+		return -1;
+	}
+	else if(firstDouble > secondDouble)
 	{
 		return 1;
 	}
@@ -26,7 +44,11 @@ void destruct(void *a)
 }
 int main(int argc, char **argv) 
 {
-	SortedListPtr sortedList = SLCreate(&compareDubs, &destruct);
+	/*
+		Test cases for double numbers
+	*/
+	
+	SortedListPtr sortedList = SLCreate(&compareDoubleTest, &destruct);
 	double *n1 = malloc(sizeof(double*));
 	double *n2 = malloc(sizeof(double*));
 	double *n3 = malloc(sizeof(double*));
@@ -41,16 +63,24 @@ int main(int argc, char **argv)
 	*n5 = 11.0;
 	*n6 = 1.0;
 	
-	
 	SLInsert(sortedList, n1);
 	SLInsert(sortedList, n2);
 	SLInsert(sortedList, n5);
 	SLInsert(sortedList, n3);
 	SLInsert(sortedList, n6);
+	display(sortedList);
+	
+	/*
+	SLRemove(sortedList, n1);
+	SLRemove(sortedList, n2);
+	SLRemove(sortedList, n5);
+	SLRemove(sortedList, n3);
+	SLRemove(sortedList, n6);
+	
 	
 	display(sortedList);
 	
-	
+	*/
 	
 	
 	return 0;
