@@ -103,6 +103,14 @@ int SLInsert(SortedListPtr list, void *newObj)
 	/*
 		If the next object is smaller. Insert there
 	*/
+			else if (iter->next==NULL)
+			{	
+				iter->next=			toInsert;
+				toInsert->previous=		iter;
+				toInsert->next=			NULL;
+				
+				return 1;
+			}
 			else if (list->comp(newObj,iter->next->data)==1)
 			{
 	
@@ -112,25 +120,18 @@ int SLInsert(SortedListPtr list, void *newObj)
 				iter->next=toInsert;
 				return 1;	
 			}
-			else if (iter->next==NULL)
-			{	
-				iter->next=			toInsert;
-				toInsert->previous=		iter;
-				toInsert->next=			NULL;
-				
-				return 1;
 
-		}
 			
 		iter=						iter->next;
-	}
+		}
         return 1;
 	}
 }
 int SLRemove(SortedListPtr list, void *newObj)
 {
 	struct Node *current=					list->node;
-	
+	if (list==NULL || list->node==NULL)
+		return 0;
 	if (list->comp(current->data,newObj)==0)
 	{
 	/*
