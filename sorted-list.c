@@ -205,7 +205,7 @@ void displayDouble(SortedList *list)
     {
 		return;
     }
-    while(root->next!=NULL)
+    while(root!=NULL)
     {
 		double v=*(double*)(root->data);
 		printf("%g",v);
