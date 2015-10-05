@@ -40,6 +40,8 @@ Take a look at this as an example of a comparator function that can be passed in
 This one can test integers.
 The destruct method can be passed in as the destructFunctonT
 
+Will only display correctly on linux. For some reason it works on Linux (XOR) Mac AND Windows
+
 int compareIntegerType(void *p1, void *p2)
 {
 	int firstInt = *(int *)p1;
